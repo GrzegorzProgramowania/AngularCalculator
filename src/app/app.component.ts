@@ -15,7 +15,20 @@ export class AppComponent {
   calculatorValue: number = 0;
   funcText: any = 'NoFunction';
 
+  calculatorNumber: string = 'noValue';
+
   onClickValue(val: string, type: any) {
-    console.log(val, type);
+    if (type == 'number') {
+      this.onNumbersClick(val);
+    }
+  }
+  onNumbersClick(val: string) {
+    if (this.calculatorNumber !== 'noValue') {
+      this.calculatorNumber = this.calculatorNumber + val;
+    } else {
+      this.calculatorNumber = val;
+    }
+
+    this.calculatorValue = parseFloat(this.calculatorNumber);
   }
 }
