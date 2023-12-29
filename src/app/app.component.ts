@@ -13,13 +13,18 @@ export class AppComponent {
   title = 'calculator_angular';
 
   calculatorValue: number = 0;
-  funcText: any = 'NoFunction';
+  funcText: any = 'noFunction';
 
   calculatorNumber: string = 'noValue';
+
+  firstNumber: number = 0;
+  secondNumber: number = 0;
 
   onClickValue(val: string, type: any) {
     if (type == 'number') {
       this.onNumbersClick(val);
+    } else if (type == 'function') {
+      this.onFunctionClick(val);
     }
   }
   onNumbersClick(val: string) {
@@ -30,5 +35,14 @@ export class AppComponent {
     }
 
     this.calculatorValue = parseFloat(this.calculatorNumber);
+  }
+
+  onFunctionClick(val: string) {
+    if (this.funcText == 'noFunction') {
+      this.firstNumber = this.calculatorValue;
+      this.calculatorValue = 0;
+      this.calculatorNumber = 'noValue';
+      this.funcText = val;
+    }
   }
 }
