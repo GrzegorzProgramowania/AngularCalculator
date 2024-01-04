@@ -52,31 +52,30 @@ export class AppComponent {
   valueCalculate(val: string) {
     if (this.funcText == '+') {
       const Total = this.firstNumber + this.secondNumber;
-      this.calculatorValue = Total;
-      this.secondNumber = 0;
-      this.calculatorNumber = 'noValue';
-      this.funcText = val;
+      this.totalAssignValues(Total, val);
     }
     if (this.funcText == '-') {
       const Total = this.firstNumber - this.secondNumber;
-      this.calculatorValue = Total;
-      this.secondNumber = 0;
-      this.calculatorNumber = 'noValue';
-      this.funcText = val;
+      this.totalAssignValues(Total, val);
     }
     if (this.funcText == '*') {
       const Total = this.firstNumber * this.secondNumber;
-      this.calculatorValue = Total;
-      this.secondNumber = 0;
-      this.calculatorNumber = 'noValue';
-      this.funcText = val;
+      this.totalAssignValues(Total, val);
     }
     if (this.funcText == '/') {
       const Total = this.firstNumber / this.secondNumber;
-      this.calculatorValue = Total;
-      this.secondNumber = 0;
-      this.calculatorNumber = 'noValue';
-      this.funcText = val;
+      this.totalAssignValues(Total, val);
     }
+    if (this.funcText == '%') {
+      const Total = this.firstNumber % this.secondNumber;
+      this.totalAssignValues(Total, val);
+    }
+  }
+  //added method to reduce cod
+  totalAssignValues(Total: number, val: string) {
+    this.calculatorValue = Total;
+    this.secondNumber = 0;
+    this.calculatorNumber = 'noValue';
+    this.funcText = val;
   }
 }
