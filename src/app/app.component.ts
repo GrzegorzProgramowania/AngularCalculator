@@ -43,6 +43,40 @@ export class AppComponent {
       this.calculatorValue = 0;
       this.calculatorNumber = 'noValue';
       this.funcText = val;
+    } else if (this.funcText !== 'NoFunction') {
+      this.secondNumber = this.calculatorValue;
+      //the calculator
+      this.valueCalculate(val);
+    }
+  }
+  valueCalculate(val: string) {
+    if (this.funcText == '+') {
+      const Total = this.firstNumber + this.secondNumber;
+      this.calculatorValue = Total;
+      this.secondNumber = 0;
+      this.calculatorNumber = 'noValue';
+      this.funcText = val;
+    }
+    if (this.funcText == '-') {
+      const Total = this.firstNumber - this.secondNumber;
+      this.calculatorValue = Total;
+      this.secondNumber = 0;
+      this.calculatorNumber = 'noValue';
+      this.funcText = val;
+    }
+    if (this.funcText == '*') {
+      const Total = this.firstNumber * this.secondNumber;
+      this.calculatorValue = Total;
+      this.secondNumber = 0;
+      this.calculatorNumber = 'noValue';
+      this.funcText = val;
+    }
+    if (this.funcText == '/') {
+      const Total = this.firstNumber / this.secondNumber;
+      this.calculatorValue = Total;
+      this.secondNumber = 0;
+      this.calculatorNumber = 'noValue';
+      this.funcText = val;
     }
   }
 }
