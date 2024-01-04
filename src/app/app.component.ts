@@ -39,14 +39,14 @@ export class AppComponent {
 
   onFunctionClick(val: string) {
     //call the clear all method when click the C function
-    if (this.funcText == 'c') {
+    if (val == 'c') {
       this.clearAll();
     } else if (this.funcText == 'noFunction') {
       this.firstNumber = this.calculatorValue;
       this.calculatorValue = 0;
       this.calculatorNumber = 'noValue';
       this.funcText = val;
-    } else if (this.funcText !== 'NoFunction') {
+    } else if (this.funcText !== 'noFunction') {
       this.secondNumber = this.calculatorValue;
       //the calculator
       this.valueCalculate(val);
@@ -56,37 +56,22 @@ export class AppComponent {
     if (this.funcText == '+') {
       const Total = this.firstNumber + this.secondNumber;
       this.totalAssignValues(Total, val);
-      if (val == '=') {
-        this.onEqualPress();
-      }
     }
     if (this.funcText == '-') {
       const Total = this.firstNumber - this.secondNumber;
       this.totalAssignValues(Total, val);
-      if (val == '=') {
-        this.onEqualPress();
-      }
     }
     if (this.funcText == '*') {
       const Total = this.firstNumber * this.secondNumber;
       this.totalAssignValues(Total, val);
-      if (val == '=') {
-        this.onEqualPress();
-      }
     }
     if (this.funcText == '/') {
       const Total = this.firstNumber / this.secondNumber;
       this.totalAssignValues(Total, val);
-      if (val == '=') {
-        this.onEqualPress();
-      }
     }
     if (this.funcText == '%') {
       const Total = this.firstNumber % this.secondNumber;
       this.totalAssignValues(Total, val);
-      if (val == '=') {
-        this.onEqualPress();
-      }
     }
   }
   //added method to reduce cod
@@ -95,12 +80,15 @@ export class AppComponent {
     this.secondNumber = 0;
     this.calculatorNumber = 'noValue';
     this.funcText = val;
+    if (val == '=') {
+      this.onEqualPress();
+    }
   }
   //equal method
   onEqualPress() {
     this.firstNumber = 0;
     this.secondNumber = 0;
-    this.funcText = 'NoFunction';
+    this.funcText = 'noFunction';
     this.calculatorNumber = 'noValue';
   }
   //clear method
@@ -108,7 +96,7 @@ export class AppComponent {
     this.firstNumber = 0;
     this.secondNumber = 0;
     this.calculatorValue = 0;
-    this.funcText = 'NoFunction';
+    this.funcText = 'noFunction';
     this.calculatorNumber = 'noValue';
   }
 }
