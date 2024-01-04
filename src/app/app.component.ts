@@ -38,7 +38,10 @@ export class AppComponent {
   }
 
   onFunctionClick(val: string) {
-    if (this.funcText == 'noFunction') {
+    //call the clear all method when click the C function
+    if (this.funcText == 'c') {
+      this.clearAll();
+    } else if (this.funcText == 'noFunction') {
       this.firstNumber = this.calculatorValue;
       this.calculatorValue = 0;
       this.calculatorNumber = 'noValue';
@@ -97,6 +100,14 @@ export class AppComponent {
   onEqualPress() {
     this.firstNumber = 0;
     this.secondNumber = 0;
+    this.funcText = 'NoFunction';
+    this.calculatorNumber = 'noValue';
+  }
+  //clear method
+  clearAll() {
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.calculatorValue = 0;
     this.funcText = 'NoFunction';
     this.calculatorNumber = 'noValue';
   }
